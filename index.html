@@ -33,7 +33,7 @@
         function playRound(computerSelection, PlayerSelection){ // run a single round
             let result=0;
             if(computerSelection==="rock"){
-                switch (PlayerSelction) { // logic for when comp selects rock
+                switch (PlayerSelection) { // logic for when comp selects rock
                     case "scissors":
                         result=-1;
                         break;
@@ -44,7 +44,7 @@
                         break;
                 }
             } else if(computerSelection==="paper"){
-                switch (PlayerSelction) {
+                switch (PlayerSelection) {
                     case "rock":
                         result=-1;
                         break;
@@ -55,7 +55,7 @@
                         break;
                 }
             } else if(computerSelection==="scissors"){
-                switch (PlayerSelction) {
+                switch (PlayerSelection) {
                     case "paper":
                         result=-1;
                         break;
@@ -71,13 +71,14 @@
             console.log("and the user selected: ") 
             console.log(PlayerSelection);
             console.log("\n");
+            return result;
         }
         function game(){
             let counter =0;
             for(let i=0; i<5; i++){
-                const c=getComputerChoice();
-                const p=getPlayerChoice();
-                const x=playRound(c,p);
+                let c=getComputerChoice();
+                let p=getPlayerChoice();
+                let x=playRound(c,p);
                 switch (x) {
                     case 1:
                         console.log("Congrats you won a round. You have now won ");
@@ -86,7 +87,8 @@
                         break;
                     case -1:
                         console.log("You lost this round.");
-                    default:
+                        break;
+                    case 0:
                         console.log("You drew this round.");
                         break;
                 }
