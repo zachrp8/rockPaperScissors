@@ -66,11 +66,7 @@
                         break;
                 }
             } 
-            console.log("The computer selected: ");
-            console.log(computerSelection); 
-            console.log("and the user selected: ") 
-            console.log(PlayerSelection);
-            console.log("\n");
+            console.log("The computer selected: ", computerSelection, "and the user selected: ", PlayerSelection);
             return result;
         }
         function game(){
@@ -81,9 +77,7 @@
                 let x=playRound(c,p);
                 switch (x) {
                     case 1:
-                        console.log("Congrats you won a round. You have now won ");
-                        console.log(++counter);
-                        console.log(" rounds.")
+                        console.log("Congrats you won a round. You have now won ", ++counter, " rounds.")
                         break;
                     case -1:
                         console.log("You lost this round.");
@@ -93,6 +87,7 @@
                         break;
                 }
             }
+            console.log("Your record is ", counter, "-", 5-counter);
         }
         console.log(game());
 
