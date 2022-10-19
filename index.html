@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getRandomNum(max){
+            return Math.floor(Math.random()*max) +1;
+        }
+        function getComputerChoice(){
+            let x=getRandomNum(3); // based on the rand return rock paper or scissors
+            let choice="";
+            switch (x) {
+                case 1:
+                    choice = "rock";
+                    break;
+                case 2:
+                    choice = "paper";
+                    break;
+                case 3:
+                    choice = "scissors";
+                    break;    
+            }
+            return choice;
+        }
+        function getPlayerChoice(){
+            let choice = prompt("Enter your choice: ");
+            let result = choice.toLowerCase(choice);
+            return result;
+        }
+        function playRound(computerSelection, PlayerSelection){ // run a single round
+            let result=0;
+            if(computerSelection==="rock"){
+                switch (PlayerSelction) { // logic for when comp selects rock
+                    case "scissors":
+                        result=-1;
+                        break;
+                    case "paper":
+                        result=1;
+                        break;
+                    default:
+                        break;
+                }
+            } else if(computerSelection==="paper"){
+                switch (PlayerSelction) {
+                    case "rock":
+                        result=-1;
+                        break;
+                    case "scissors":
+                        result=1;
+                        break;
+                    default:
+                        break;
+                }
+            } else if(computerSelection==="scissors"){
+                switch (PlayerSelction) {
+                    case "paper":
+                        result=-1;
+                        break;
+                    case "rock":
+                        result=1;
+                        break;
+                    default:
+                        break;
+                }
+            } 
+            console.log("The computer selected: ");
+            console.log(computerSelection); 
+            console.log("and the user selected: ") 
+            console.log(PlayerSelection);
+            console.log("\n");
+        }
+        function game(){
+            let counter =0;
+            for(let i=0; i<5; i++){
+                const c=getComputerChoice();
+                const p=getPlayerChoice();
+                const x=playRound(c,p);
+                switch (x) {
+                    case 1:
+                        console.log("Congrats you won a round. You have now won ");
+                        console.log(++counter);
+                        console.log(" rounds.")
+                        break;
+                    case -1:
+                        console.log("You lost this round.");
+                    default:
+                        console.log("You drew this round.");
+                        break;
+                }
+            }
+        }
+        console.log(game());
+
+    </script>
+</body>
+</html>
