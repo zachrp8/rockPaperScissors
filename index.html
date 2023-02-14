@@ -5,92 +5,15 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
-        function getRandomNum(max){
-            return Math.floor(Math.random()*max) +1;
-        }
-        function getComputerChoice(){
-            let x=getRandomNum(3); // based on the rand return rock paper or scissors
-            let choice="";
-            switch (x) {
-                case 1:
-                    choice = "rock";
-                    break;
-                case 2:
-                    choice = "paper";
-                    break;
-                case 3:
-                    choice = "scissors";
-                    break;    
-            }
-            return choice;
-        }
-        function getPlayerChoice(){
-            let choice = prompt("Enter your choice: ");
-            let result = choice.toLowerCase(choice);
-            return result;
-        }
-        function playRound(computerSelection, PlayerSelection){ // run a single round
-            let result=0;
-            if(computerSelection==="rock"){
-                switch (PlayerSelection) { // logic for when comp selects rock
-                    case "scissors":
-                        result=-1;
-                        break;
-                    case "paper":
-                        result=1;
-                        break;
-                    default:
-                        break;
-                }
-            } else if(computerSelection==="paper"){
-                switch (PlayerSelection) {
-                    case "rock":
-                        result=-1;
-                        break;
-                    case "scissors":
-                        result=1;
-                        break;
-                    default:
-                        break;
-                }
-            } else if(computerSelection==="scissors"){
-                switch (PlayerSelection) {
-                    case "paper":
-                        result=-1;
-                        break;
-                    case "rock":
-                        result=1;
-                        break;
-                    default:
-                        break;
-                }
-            } 
-            console.log("The computer selected: ", computerSelection, "and the user selected: ", PlayerSelection);
-            return result;
-        }
-        function game(){
-            let counter =0;
-            for(let i=0; i<5; i++){
-                let c=getComputerChoice();
-                let p=getPlayerChoice();
-                let x=playRound(c,p);
-                switch (x) {
-                    case 1:
-                        console.log("Congrats you won a round. You have now won ", ++counter, " rounds.")
-                        break;
-                    case -1:
-                        console.log("You lost this round.");
-                        break;
-                    case 0:
-                        console.log("You drew this round.");
-                        break;
-                }
-            }
-            console.log("Your record is ", counter, "-", 5-counter);
-        }
-        console.log(game());
-
-    </script>
+    <div class="game">
+        <div class="player">
+            <p class="player">Player Score: 0</p>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <p class="computer">Computer Score: 0</p>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
